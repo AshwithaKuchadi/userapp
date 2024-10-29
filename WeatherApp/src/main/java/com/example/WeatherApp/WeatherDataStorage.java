@@ -7,10 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class WeatherDataStorage {
-    // Database credentials
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/weather_db"; // Replace with your database name
-    private static final String USER = "root"; // Replace with your database username
-    private static final String PASSWORD = "root123"; // Replace with your database password
+   
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/weather_db"; 
+    private static final String USER = "root"; 
+    private static final String PASSWORD = "root123"; 
 
    
     public static void storeWeatherData(String city, double temperature, double feelsLike, String weatherCondition, String description) {
@@ -47,12 +47,12 @@ public class WeatherDataStorage {
             stmt.setString(1, city);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                return rs.getInt(1) > 0; // Return true if count is greater than 0
+                return rs.getInt(1) > 0;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false; // Default to false if there's an exception
+        return false; 
     }
 }
 
